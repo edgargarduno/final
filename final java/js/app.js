@@ -1,33 +1,33 @@
-var operacion="";
+var oper="";
 
 function escribir(n){
 
-  var numero=document.getElementById("display").innerHTML;
-  var n1=nemero.length
-  var punto=numero.indexOf(".")
+  var num=document.getElementById("display").innerHTML;
+  var n1=num.length
+  var punto=num.indexOf(".")
   var repeticion=0
 
-  for (var i = 0; i <numero.length; i++) {
-    if (numero.charAt(i)==".") {
+  for (var i = 0; i < num.length; i++) {
+    if (num.charAt(i)==".") {
       repeticion++;
     }
   }
 
-  if (numero=="0" && n!='.') {
-    displayN =numero.replace("0","");
+  if (num=="0" && n!='.') {
+    displayN =num.replace("0","");
     document.getElementById("display").innerHTML=displayN+n;
   } else if(n1<8 && punto==-1){
       if (n=='.' && repeticion>0) {
-      document.getElementById("display").innerHTML=numero;
+      document.getElementById("display").innerHTML=num;
       } else {
-          document.getElementById("display").innerHTML=numero+n;
+          document.getElementById("display").innerHTML=num+n;
           repeticion=0;
         }
     } else if (n1<9 && punto!=-1) {
         if (n=='.' && repeticion>0) {
-            document.getElementById("display").innerHTML=numero;
+            document.getElementById("display").innerHTML=num;
         } else {
-            document.getElementById("display").innerHTML=numero+n;
+            document.getElementById("display").innerHTML=num+n;
             repeticion=0;
           }
       }
@@ -40,27 +40,27 @@ function escribir1(x){
 function limpiar(){
   MouseOver('on');
   document.getElementById("display").innerHTML=0;
-  operacion="";
+  oper="";
 }
 
 function masmenos(){
   MouseOver('sign');
-  var numero=document.getElementById("display").innerHTML;
-  if (numero>0) {
-    document.getElementById("display").innerHTML="-"+numero;
+  var num=document.getElementById("display").innerHTML;
+  if (num>0) {
+    document.getElementById("display").innerHTML="-"+num;
   }else {
-    displayN=nuemro.replace(/[-|(|)]/g, "")
+    displayN=num.replace(/[-|(|)]/g, "")
     document.getElementById("display").innerHTML=displayN;
   }
 }
 
 function aritmetica(x){
-  var numero=document.getElementById("display").innerHTML;
-if (numero!="" && operacion=="") {
-  operacion=numero+x;
+  var   num=document.getElementById("display").innerHTML;
+if (num!="" && oper=="") {
+  oper=num+x;
   document.getElementById("display").innerHTML="";
-}else if (numero!="") {
-  operacion=operacion+numero+x;
+}else if (num!="") {
+  oper=oper+num+x;
   document.getElementById("display").innerHTML="";
   }
 }
@@ -70,23 +70,23 @@ function aritmetica1(x){
 }
 
 function calcular(){
-  var numero=document.getElementById("display").innerHTML;
-  var resultado=eval(operacion+numero);
+  var num=document.getElementById("display").innerHTML;
+  var resultado=eval(oper+num);
   var cadena=resultado.toString()
-  var punto=numero.indexOf(".")
+  var punto=num.indexOf(".")
   var n1=cadena.length
   if (n1<8) {
     document.getElementById("display").innerHTML=cadena.substr(0,8);
-    operacion="";
+    oper="";
   } else if(n1>7){
       document.getElementById("display").innerHTML=cadena.substr(0,9);
-      operacion="";
+      oper="";
     }
 }
 
 function raiz(){
-  var numero=document.getElementById("display").innerHTML;
-  document.getElementById("display").innerHTML=Math.sqrt(numero);
+  var num=document.getElementById("display").innerHTML;
+  document.getElementById("display").innerHTML=Math.sqrt(num);
   MouseOver('raiz');
 }
 
